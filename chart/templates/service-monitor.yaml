@@ -11,6 +11,9 @@ metadata:
     release: "{{ .Release.Name }}"
   {{- end}}
     heritage: "{{ .Release.Service }}"
+  {{- if .Values.controlPlane.advanced.globalMetadata.labels }}
+{{ toYaml .Values.controlPlane.advanced.globalMetadata.labels | indent 4 }}
+  {{- end }}
   {{- if .Values.controlPlane.serviceMonitor.labels }}
 {{ toYaml .Values.controlPlane.serviceMonitor.labels | indent 4 }}
   {{- end }}

@@ -494,3 +494,19 @@ tests:
             apiGroups: ["resource.k8s.io"]
             resources: ["resourceclaimtemplates"]
             verbs: ["create", "delete", "patch", "update", "get", "list", "watch"]
+
+  - it: should set global metadata labels
+    set:
+      controlPlane:
+        advanced:
+          globalMetadata:
+            labels:
+              my-label: my-value
+    release:
+      name: my-release
+      namespace: my-namespace
+    asserts:
+      - equal:
+          path: metadata.labels.my-label
+          value: "my-value"
+

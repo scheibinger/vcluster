@@ -17,6 +17,9 @@ metadata:
     chart: "{{ include "vcluster.version.label"  $ }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
+  {{- if .Values.controlPlane.advanced.globalMetadata.labels }}
+{{ toYaml .Values.controlPlane.advanced.globalMetadata.labels | indent 4 }}
+  {{- end }}
   {{- if .Values.controlPlane.advanced.globalMetadata.annotations }}
   annotations:
 {{ toYaml .Values.controlPlane.advanced.globalMetadata.annotations | indent 4 }}

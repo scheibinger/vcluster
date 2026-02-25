@@ -458,6 +458,13 @@
           },
           "type": "object",
           "description": "Annotations are extra annotations for this resource."
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object",
+          "description": "Labels are extra labels for this resource."
         }
       },
       "additionalProperties": false,

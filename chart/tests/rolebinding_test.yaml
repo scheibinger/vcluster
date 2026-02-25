@@ -58,3 +58,18 @@ tests:
       - equal:
           path: roleRef.name
           value: vc-mn-my-release-v-my-namespace
+
+  - it: should set global metadata labels
+    set:
+      controlPlane:
+        advanced:
+          globalMetadata:
+            labels:
+              my-label: my-value
+    release:
+      name: my-release
+      namespace: my-namespace
+    asserts:
+      - equal:
+          path: metadata.labels.my-label
+          value: "my-value"

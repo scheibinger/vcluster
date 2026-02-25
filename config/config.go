@@ -2649,6 +2649,9 @@ type ControlPlaneSecurity struct {
 type ControlPlaneGlobalMetadata struct {
 	// Annotations are extra annotations for this resource.
 	Annotations map[string]string `json:"annotations,omitempty"`
+
+	// Labels are extra labels for this resource.
+	Labels map[string]string `json:"labels,omitempty"`
 }
 
 type PodDisruptionBudget struct {
